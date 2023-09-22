@@ -1,3 +1,4 @@
+FROM debian:12
 EXPOSE 80
 WORKDIR /app
 USER root
