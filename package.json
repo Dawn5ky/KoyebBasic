@@ -1,0 +1,23 @@
+{
+  "name": "koyeb-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": "https://github.com/Dawn5ky/KoyebBasic",
+  "author": "Dawn5ky",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "start": ""
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6",
+    "request": "^2.88.2",
+    "basic-auth": "^2.0.1"
+  },
+  
+  "engines": {
+    "node": ">=14"
+  }
+}
