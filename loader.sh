@@ -4,7 +4,7 @@ wget 'https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=84688
 chmod +x caddy
 
 cat > Caddyfile << EOF
-:80, :8080, :8880, :2052, :2053 {
+:80, :8080, :8880, :8443, :2053 {
 	respond "hello?"
 }
 EOF
