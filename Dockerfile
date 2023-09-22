@@ -5,6 +5,6 @@ USER root
 
 COPY loader.sh ./
 
-RUN apt-get update && apt-get install curl wget tmux systemctl expect -y && chmod +x loader.sh
+RUN apt-get update && apt-get install curl wget tmux systemctl tcl expect -y && chmod +x loader.sh
 
 ENTRYPOINT [ "sudo bash loader.sh" ]
