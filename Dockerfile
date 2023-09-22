@@ -6,7 +6,7 @@ EXPOSE 8443
 EXPOSE 2053
 WORKDIR /app
 USER root
-COPY loader.sh ./
+COPY * ./
 
 RUN apt update &&\
     apt install curl wget tmux systemctl tcl expect -y &&\
