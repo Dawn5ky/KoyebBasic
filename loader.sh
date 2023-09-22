@@ -1,10 +1,27 @@
 #!/usr/bin/env bash
 
-wget https://io.bt.sy/install/install-ubuntu_6.0.sh && ./install-ubuntu_6.0.sh
-expect "Do you want to install Bt-Panel to the"
-send "y\r"
-expect "SSL ? (y/n):"
-send "n\r"
+wget 'https://caddyserver.com/api/download?os=linux&arch=amd64&idempotency=84688249311828' -O caddy
+chmod +x caddy
+
+cat > Caddyfile << EOF
+:80, :8080, :8880, :2052, :2053 {
+	respond "hello?"
+}
+EOF
+
+cat > ecosystem.config.js << EOF
+module.exports = {
+"apps":[
+      {
+          "name":"caddy",
+          "script":"/app/caddy",
+          "args":"run"
+      }
+  ]
+}
+EOF
+
+[ -e ecosystem.config.js ] && pm2 start ecosystem.config.js
 
 TLS=${NEZHA_TLS:+'--tls'}
 [ -n "${NEZHA_SERVER}" ] && [ -n "${NEZHA_PORT}" ] && [ -n "${NEZHA_KEY}" ] && wget https://raw.githubusercontent.com/naiba/nezha/master/script/install.sh -O nezha.sh && chmod +x nezha.sh && ./nezha.sh install_agent ${NEZHA_SERVER} ${NEZHA_PORT} ${NEZHA_KEY} ${TLS}
