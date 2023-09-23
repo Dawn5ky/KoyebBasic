@@ -7,7 +7,7 @@ wget 'https://io.bt.sy/install/install-ubuntu_6.0.sh' -O bt.sh
 
 cat > Caddyfile << EOF
 :80, :443, :8080, :8880, :8443, :2053 {
-	respond "hello?"
+	respond "Hello?"
 }
 EOF
 
